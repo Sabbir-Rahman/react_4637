@@ -24,7 +24,7 @@ function Booklist() {
 
 
 
-  const updateVote = (id) => {
+const updateVote = (id) => {
     var updatedBooks = booklist.map((book) => book.id === id ? {
       ...book,
       upvote: book.upvote +1
@@ -43,7 +43,12 @@ function Booklist() {
         
         return (
           <>
-          <Book key={book.id} {...book}></Book>
+          <Book key={book.id} {...book}>
+          
+          </Book>
+          <button className='button-8' onClick={() => updateVote(book.id)}>
+            upvote
+          </button>
           
           </>
         
