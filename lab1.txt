@@ -1,0 +1,3 @@
+- Design a Website with ReactJs that is similar to the one given in the attached image.
+- When someone clicks on the up button, the number of upvotes should increase,
+- The product list should be displayed according to the number of upvotes. In descending order.
