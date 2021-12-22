@@ -11,10 +11,13 @@ body {
 }
 
 .booklist {
-    width: 20vw;
+    width: 80vw;
     max-width: 1680px;
-    margin: 5 rem auto;
+    margin: auto;
     margin-bottom: 30px;
+    align-items: center;
+    
+    
     
 }
 
@@ -28,6 +31,7 @@ body {
     background: white;
     border-radius: 1rem;
     padding: 1rem 2rem;
+    padding-bottom: 60px;
     
 }
 
@@ -45,9 +49,17 @@ body {
     margin-top: 0.5rem;
 }
 
+.book img {
+    width: 270px;
+    
+}
+
 
 /* CSS */
 .button-8 {
+  position: relative;
+  top: -50px;
+  margin-left: 30px;
   width: 70px;
   height: 30px;
   background-color: #e1ecf4;
