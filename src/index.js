@@ -1,19 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import './App.css'
 
 
-function App() {
-  
-  return (
-    <section>
-      
-      <h2>Welcome to react</h2>
-    </section>
-  );
-}
-
-
-ReactDOM.render(<App />, document.getElementById("root"));
-
-
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
