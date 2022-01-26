@@ -3,7 +3,7 @@ import Watch from './container/Watch'
 import Modal from './components/Modal/Modal';
 
 const App = () => {
-  const [data,setData] = useState([])
+  const [data,setData] = useState([{"id":1,"title":"test"}])
   
   const removeItem = (id)=> {
       let newData = data.filter((d)=> d.id !== id)
@@ -43,7 +43,7 @@ const App = () => {
                 </div>
             )
         })}
-        <Modal status="add" addEvent={addItem} />
+        <Modal status="Add" addEvent={addItem} />
       </>
   );
 };

@@ -65,8 +65,10 @@ function App(props) {
             <h3>{props.title}</h3>
           <DisplayComponent time={time}/>
           <BtnComponent status={status} stop={stop} start={start} reset={reset} resume={resume}/>
-          <button onClick={remove}>Remove</button>
-          <Modal status="edit" editEvent={editWatch}/>
+          <div className='editRemoveWatch'>
+              <button onClick={remove}>Remove</button>
+              <Modal className='editModal' status="Edit" editEvent={editWatch}/>
+          </div>
         </div>
       </div>
     </div>

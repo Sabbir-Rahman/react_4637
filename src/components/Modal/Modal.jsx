@@ -11,8 +11,8 @@ export default function Modal(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if(props.status =='edit'){
+
+    if(props.status =='Edit'){
         props.editEvent(input)
     }else {
         props.addEvent(input)
