@@ -7,18 +7,23 @@ import Modal from '../components/Modal/Modal';
 function App(props) {
   const [time,setTime] = useState({ms:0, m:0, s:0, h:0})
   const [interv,setInterv] = useState()
+  const [title,setTitle] = useState(props.title)
+  const [project,setProject] = useState(props.project)
   const [status, setStatus] = useState(0)
+  const [isEdit,setIsEdit] = useState(false)
 
   //Not started = 0
   // started = 1
   // stopped = 2
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.editEvent(props.id,title,project)
+    setIsEdit(false)
+  };
+
   const remove = ()=> {
       props.removeEvent(props.id)
-  }
-
-  const editWatch = (title) => {
-      props.editEvent(props.id,title)
   }
 
   const start = () => {
@@ -58,21 +63,63 @@ function App(props) {
 
     return setTime({ms:updatedMs, m:updatedM, s:updatedS, h:updatedH})
   }
-  return (
-    <div className="main-section">
-      <div className="clock-holder">
-        <div className='stopwatch'>
-            <h3>{props.title}</h3>
-          <DisplayComponent time={time}/>
-          <BtnComponent status={status} stop={stop} start={start} reset={reset} resume={resume}/>
-          <div className='editRemoveWatch'>
-              <button onClick={remove}>Remove</button>
-              <Modal className='editModal' status="Edit" editEvent={editWatch}/>
-          </div>
+
+  console.log(isEdit)
+
+  if(!isEdit){
+    return (
+        <div className="main-section">
+            <div className="clock-holder">
+                <div className='stopwatch'>
+                    <h2>Title:{props.title}</h2>
+                    <h4>Project:{props.project}</h4>
+                <DisplayComponent time={time}/>
+                <BtnComponent status={status} stop={stop} start={start} reset={reset} resume={resume}/>
+                <button onClick={remove}>Remove</button>
+                <button onClick={()=> setIsEdit(true)}>Edit</button>
+                {/* <Modal className='editModal' status="Edit" editEvent={editWatch}/> */}
+            
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
+  } 
+  if(isEdit){
+      return(
+          <article>
+            <div className="main-section">
+                <div className="clock-holder">
+                    <div className='stopwatch'>
+                        <form className='form' onSubmit={handleSubmit}>
+                            <div className='form-control'>
+                            <label htmlFor='title'>Title : </label>
+                            <input
+                            type='text'
+                            id='title'
+                            name='title'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            />
+                    </div>
+            <div className='form-control'>
+                <label htmlFor='email'>Project : </label>
+                <input
+                type='project'
+                id='project'
+                name='project'
+                value={project}
+                onChange={(e) => setProject(e.target.value)}
+                />
+            </div>
+            <button type='submit'>Edit Event</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+      )
+  }
+  
 }
 
 export default App;

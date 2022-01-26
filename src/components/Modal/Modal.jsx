@@ -4,6 +4,7 @@ import "./modal.css";
 export default function Modal(props) {
   const [modal, setModal] = useState(false);
   const [input, setInput] = useState('');
+  const [project, setProject] = useState("")
 
   const toggleModal = () => {
     setModal(!modal);
@@ -11,14 +12,7 @@ export default function Modal(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if(props.status =='Edit'){
-        props.editEvent(input)
-    }else {
-        props.addEvent(input)
-    }
-    
-    
+    props.addEvent(input,project)
     toggleModal()
     setInput("")
   };
@@ -47,10 +41,21 @@ export default function Modal(props) {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
+            <h3>Enter Project</h3>
+            <input
+              type='input'
+              id='project'
+              name='project'
+              value={project}
+              onChange={(e) => setProject(e.target.value)}
+            />
+            <div>
+                <button onClick={handleSubmit}>Add Event</button>
+            </div>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
             </button>
-            <button onClick={handleSubmit}>Add Event</button>
+            
           </div>
         </div>
       )}
