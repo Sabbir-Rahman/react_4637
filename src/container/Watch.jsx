@@ -2,7 +2,7 @@ import './watch.css'
 import React, {useState} from 'react';
 import DisplayComponent from '../components/DisplayComponent'
 import BtnComponent from '../components/BtnComponent';
-import Modal from '../components/Modal/Modal';
+import { AiOutlineEdit } from 'react-icons/fa';
 
 function App(props) {
   const [time,setTime] = useState({ms:0, m:0, s:0, h:0})
@@ -71,14 +71,16 @@ function App(props) {
         <div className="main-section">
             <div className="clock-holder">
                 <div className='stopwatch'>
-                    <h2>Title:{props.title}</h2>
-                    <h4>Project:{props.project}</h4>
+                    <div className="watchText">
+                        <h2>Title:{props.title}</h2>
+                        <h4>Project:{props.project}</h4>
+                    </div>
                 <DisplayComponent time={time}/>
                 <BtnComponent status={status} stop={stop} start={start} reset={reset} resume={resume}/>
-                <button onClick={remove}>Remove</button>
-                <button onClick={()=> setIsEdit(true)}>Edit</button>
-                {/* <Modal className='editModal' status="Edit" editEvent={editWatch}/> */}
-            
+                    <div className="watchBtn">
+                        <button className='watchBtnRmv' onClick={remove}>Remove</button>
+                        <button className='watchBtnEdt' onClick={()=> setIsEdit(true)}>Edit</button>        
+                    </div>            
                 </div>
             </div>
         </div>

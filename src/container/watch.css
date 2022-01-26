@@ -14,9 +14,36 @@
   position: relative;
 }
 
+.watchText {
+    margin-bottom: 20px;
+}
+
+.watchBtn {
+    margin-top: 10px
+    
+}
+
+.watchBtnRmv {
+    margin-right: 10px;
+    border: 2px solid #C85454;
+    color: #C85454;
+    background-color: white;
+    height: 30px;
+    width: 70px;
+}
+
+.watchBtnEdt {
+    margin-left: 10px;
+    background-color: white;
+    height: 30px;
+    border: 2px solid blue;
+    width: 50px;
+}
+
 .editRemoveWatch button{
     margin-top: 10px;
     margin-bottom: -30px;
+    
 }
 
 
